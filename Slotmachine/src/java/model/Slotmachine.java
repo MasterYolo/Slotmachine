@@ -133,13 +133,3 @@ public class Slotmachine {
         return object.toString();
     }
 }
-
-/*
-
-{"Slotmachine":[
-    {"Column1":"Melon"}, 
-    {"Column2":"Bar"},
-    {"Column3":"Bar"}]}
-
-
-*/

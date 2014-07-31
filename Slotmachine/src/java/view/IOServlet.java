@@ -42,16 +42,7 @@ public class IOServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             controller = new Controller();
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet IOServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet IOServlet at " + controller.startGame(0) + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println(controller.startGame(0));
         }
     }
 

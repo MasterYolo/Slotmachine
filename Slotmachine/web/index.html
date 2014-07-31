@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<!doctype html>
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+        <script src="script.js"></script>
     </head>
+
     <body>
-        <div>TODO write content</div>
-        <form action="http://localhost:8080/Slotmachine/IOServlet" method="post">
-            <input type="submit" name="button1" value="Button 1" />
-            <input type="submit" name="button2" value="Button 2" />
-            <input type="submit" name="button3" value="Button 3" />
-        </form>
-    </body>
+        <div ng-app="ControllerModule" ng-controller="UserController">
+            <form ng-submit="fetchData()">
+                <input type="submit" value ="fetchdata">
+            </form>
+            <div>
+                Results:
+
+                <p>Amount won : {{ result.AmountWon}}
+                    <br/> 
+                    Slot1 :  {{ result.Column1}} |
+                    Slot2 :  {{ result.Column2}} |
+                    Slot3 :  {{ result.Column3}}
+                    <br />
+                    Result : {{ result.Result }}
+                </p>
+            </div>
+        </div>
+
 </html>
