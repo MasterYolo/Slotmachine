@@ -34,6 +34,10 @@ $(function() {
     positions.box = 450;
     positions.goldhelm = 540;
 
+    var slot1 = angular.element($("#slot1")).scope();
+    var slot1 = angular.element($("#slot2")).scope();
+    var slot1 = angular.element($("#slot3")).scope();
+    
     var one = new Slot('.slot#one', 20, 10, 'up', 700);
     var two = new Slot('.slot#two', 13, 7, 'down', 800);
     var three = new Slot('.slot#three', 17, 8, 'up', 600);
@@ -43,6 +47,7 @@ $(function() {
     three.go();
 
     $('#slot-machine').click(function() {
+        alert(slot1.result.Column1);
         var position = positions.bestival;
         one.stop(position);
         two.stop(position);

@@ -16,21 +16,22 @@
     <body>
 
         <div ng-app="ControllerModule" ng-controller="UserController">
-            <section id="slot-machine" class="clearfix">
-                <div id="one" class="slot"></div>
-                <div id="two" class="slot"></div>
-                <div id="three" class="slot"></div>
-            </section>
             <form ng-submit="fetchData()">
+                <section id="slot-machine" class="clearfix">
+                    <div id="one" class="slot"></div>
+                    <div id="two" class="slot"></div>
+                    <div id="three" class="slot"></div>
+                </section>
                 <input type="submit" value ="fetchdata">
             </form>
 
             <div>
-                <p>Amount won : {{ result.AmountWon}}
+                <p>
+                    Amount won : {{ result.AmountWon}}
                     <br/> 
-                    Slot1 :  <div id = "slot1">{{ result.Column1}} |</div>
-                    Slot2 :  {{ result.Column2}} |
-                    Slot3 :  {{ result.Column3}}
+                    Slot1 :  <div id = "slot1">{{ result.Column1}}</div>
+                    Slot2 :  <div id = "slot2">{{ result.Column2}}</div>
+                    Slot3 :  <div id = "slot3">{{ result.Column3}}</div>
                     <br />
                     Result : {{ result.Result}}
                 </p>
