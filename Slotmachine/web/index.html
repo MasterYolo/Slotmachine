@@ -2,26 +2,52 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="jquery.spritely-0.4.js" type="text/javascript"></script>
+        <script src="jquery-1.3.2.min.js" type="text/javascript"></script>
+        <script src="jquery-ui-1.7.2.spritely.custom.min.js" type="text/javascript"></script>
+        <script src="jquery.spritely-0.4.js" type="text/javascript"></script>
         <script src="script.js"></script>
+        <link rel="stylesheet" type="text/css" href="slot.css">
     </head>
 
     <body>
+
         <div ng-app="ControllerModule" ng-controller="UserController">
+            <section id="slot-machine" class="clearfix">
+                <div id="one" class="slot"></div>
+                <div id="two" class="slot"></div>
+                <div id="three" class="slot"></div>
+            </section>
             <form ng-submit="fetchData()">
                 <input type="submit" value ="fetchdata">
             </form>
-            <div>
-                Results:
 
+            <div>
                 <p>Amount won : {{ result.AmountWon}}
                     <br/> 
-                    Slot1 :  {{ result.Column1}} |
+                    Slot1 :  <div id = "slot1">{{ result.Column1}} |</div>
                     Slot2 :  {{ result.Column2}} |
                     Slot3 :  {{ result.Column3}}
                     <br />
-                    Result : {{ result.Result }}
+                    Result : {{ result.Result}}
                 </p>
             </div>
-        </div>
-
+            <!--
+            <div>
+                <div>
+            if i ever need the pics alone.
+                    <div><img ng-src="{{imgsrc1}}" imageonload /></div>
+                    <div><img ng-src="{{imgsrc2}}" imageonload /></div>
+                    <div><img ng-src="{{imgsrc3}}" imageonload /></div>
+                    <div><img ng-src="{{imgsrc4}}" imageonload /></div>
+                    <div><img ng-src="{{imgsrc5}}" imageonload /></div>
+                    <div><img ng-src="{{imgsrc6}}" imageonload /></div>
+                </div>
+            </div>
+            -->
+        </div> 
+    </body>
 </html>
