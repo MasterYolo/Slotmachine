@@ -1,7 +1,23 @@
+input {
+    background-color: #D28888;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#690707), to(#D28888));
+    background: -moz-linear-gradient(top, #690707 0%, #D28888 100%);
+    background-position: center top;
+    position: relative;
+    border:none;
+    bottom: 360px;
+    height: 38px;
+    left: 576px;
+    width: 330px;
+    color:#fff;
+    cursor:pointer
+}
+
 #slot-machine { position: relative; background: transparent; width: 520px; height: 566px; }
 .slot { position: absolute; background: transparent url(http://s17.postimg.org/vz8yabt1b/slots.png) repeat-y; width: 72px; height: 80px; top: 94px; }
-.slot#one { background-position: 0 500; left: 574px; }
+.slot#one { background-position: 0 500px; left: 574px; }
 .slot#two { background-position: 0 724px; left: 705px; }
 .slot#three { background-position: 0 1172px; left: 833px; }
+
 
 

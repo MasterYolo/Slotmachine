@@ -15,14 +15,14 @@
 
     <body>
 
-        <div ng-app="ControllerModule" ng-controller="UserController">
+        <div id = "controller" ng-app="ControllerModule" ng-controller="UserController" ng-init="fetchData()">
             <form ng-submit="fetchData()">
                 <section id="slot-machine" class="clearfix">
                     <div id="one" class="slot"></div>
                     <div id="two" class="slot"></div>
                     <div id="three" class="slot"></div>
                 </section>
-                <input type="submit" value ="fetchdata">
+                <input type="submit" value ="Start game">
             </form>
 
             <div>
@@ -30,17 +30,17 @@
                     Amount won : {{ result.AmountWon}}
                     <br/> 
                     Slot1 :  <div id = "slot1" style="visibility: hidden">{{ result.Column1}}</div>
-                    Slot2 :  <div id = "slot2" style="visibility: hidden">{{ result.Column2}}</div>
-                    Slot3 :  <div id = "slot3" style="visibility: hidden">{{ result.Column3}}</div>
-                    <br />
-                    Result : {{ result.Result}}
+                Slot2 :  <div id = "slot2" style="visibility: hidden">{{ result.Column2}}</div>
+                Slot3 :  <div id = "slot3" style="visibility: hidden">{{ result.Column3}}</div>
+                <br />
+                Result : {{ result.Result}}
                 </p>
             </div>
             <!--
             <div>
                 <div>
             if i ever need the pics alone.
-                    <div><img ng-src="{{imgsrc1}}" imageonload /></div>
+                    <div><img ngs-src="{{imgsrc1}}" imageonload /></div>
                     <div><img ng-src="{{imgsrc2}}" imageonload /></div>
                     <div><img ng-src="{{imgsrc3}}" imageonload /></div>
                     <div><img ng-src="{{imgsrc4}}" imageonload /></div>

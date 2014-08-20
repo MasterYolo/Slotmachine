@@ -46,26 +46,40 @@ $(function() {
     two.go();
     three.go();
 
-    $('#slot-machine').click(function() {
+    $('input').click(function() {
         var position1;
         var position2;
         var position3;
         
         /* First slot */
+        
+        /*
+         
+          for(var i = 0; i < 5; i++)
+          {
+            if (slot1.result.Column1 == lista[i])
+            {
+              position1 = lista2[i];
+            }
+          }
+          
+         
+         */
+        
         //alert(slot1.result.Column1); debug purpose only
         if (slot1.result.Column1 == "Cherry")
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position1 = positions.dollar;
         }
         else if (slot1.result.Column1 == "Orange")
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position1 = positions.bolt;
         }
         else if (slot1.result.Column1 == "Plum")
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position1 = positions.gold;
         }
         else if (slot1.result.Column1 == "Bell")
