@@ -1,5 +1,5 @@
 #slot-machine { position: relative; background: transparent; width: 520px; height: 566px; }
-.slot { position: absolute; background: transparent url(http://s17.postimg.org/vz8yabt1b/slots.png) repeat-y; width: 120px; height: 112px; top: 134px; }
+.slot { position: absolute; background: transparent url(http://s17.postimg.org/vz8yabt1b/slots.png) repeat-y; width: 72px; height: 80px; top: 94px; }
 .slot#one { background-position: 0 500; left: 574px; }
 .slot#two { background-position: 0 724px; left: 705px; }
 .slot#three { background-position: 0 1172px; left: 833px; }
