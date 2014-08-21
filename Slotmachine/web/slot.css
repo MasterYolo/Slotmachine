@@ -12,7 +12,14 @@ input {
     color:#fff;
     cursor:pointer
 }
-
+#result {
+    position: relative;
+    border:none;
+    bottom: 360px;
+    height: 38px;
+    left: 576px;
+    width: 330px;
+}
 #slot-machine { position: relative; background: transparent; width: 520px; height: 566px; }
 .slot { position: absolute; background: transparent url(http://s17.postimg.org/vz8yabt1b/slots.png) repeat-y; width: 72px; height: 80px; top: 94px; }
 .slot#one { background-position: 0 500px; left: 574px; }

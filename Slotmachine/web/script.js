@@ -1,3 +1,15 @@
+/**
+ * Written by Michael Lindell, Max Topsholm.
+ * 
+ * This angularjs module fetches an generated object from the back-end
+ * application which is used in the front-end application to decide if
+ * the user have won or not.
+ * 
+ * @param {type} The scope variable which is used to get the requested 
+ * json object from the back-end application.
+ * @param {type} The http variable to fetch the json object from the back-end
+ * application.
+ */
 angular.module('ControllerModule', []).
         controller('UserController', ['$scope', '$http', function($scope, $http)
             {
@@ -23,6 +35,22 @@ angular.module('ControllerModule', []).
                 $scope.imgsrc6 = "http://www.nonstop-games.com/examples/slot/img/goods-64.png";
             }]);
 
+/**
+ * JQuery function that handles the animation.
+ * 
+ * It uses a external library called jquery-spritely for the animation.
+ * More info about the library can be found at http://spritely.net/documentation/.
+ * 
+ * The code that was developed here has sources in http://jsfiddle.net/bekasawr/fatXJ/.
+ * 
+ * TODO:
+ * For-loop and Lists instead of the if-else statments
+ * (Possibly) Lists for the pictures instead of object now.
+ * 
+ * 
+ * @returns NOTHING.
+ */
+
 /* Animation part */
 $(function() {
     var positions = new Object();
@@ -47,6 +75,8 @@ $(function() {
     three.go();
 
     $('input').click(function() {
+        $('input:submit').attr("disabled", true);
+        
         var position1;
         var position2;
         var position3;
@@ -84,87 +114,91 @@ $(function() {
         }
         else if (slot1.result.Column1 == "Bell")
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position1 = positions.hammer;
         }
         else if (slot1.result.Column1 == "Melon")
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position1 = positions.box;
         }
         else
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position1 = positions.goldhelm;
         }
 
         /* Second slot */
         if (slot2.result.Column2 == "Cherry")
         {
-            alert(slot2.result.Column2);
+            //alert(slot2.result.Column2);
             position2 = positions.dollar;
         }
         else if (slot2.result.Column2 == "Orange")
         {
-            alert(slot1.result.Column1);
+            //alert(slot1.result.Column1);
             position2 = positions.bolt;
         }
         else if (slot2.result.Column2 == "Plum")
         {
-            alert(slot2.result.Column2);
+            //alert(slot2.result.Column2);
             position2 = positions.gold;
         }
         else if (slot2.result.Column2 == "Bell")
         {
-            alert(slot2.result.Column2);
+            //alert(slot2.result.Column2);
             position2 = positions.hammer;
         }
         else if (slot2.result.Column2 == "Melon")
         {
-            alert(slot2.result.Column2);
+            //alert(slot2.result.Column2);
             position2 = positions.box;
         }
         else
         {
-            alert(slot2.result.Column2);
+            //alert(slot2.result.Column2);
             position2 = positions.goldhelm;
         }
         
         /* Third slot */
         if (slot3.result.Column3 == "Cherry")
         {
-            alert(slot3.result.Column3);
+            //alert(slot3.result.Column3);
             position3 = positions.dollar;
         }
         else if (slot3.result.Column3 == "Orange")
         {
-            alert(slot3.result.Column3);
+            //alert(slot3.result.Column3);
             position3 = positions.bolt;
         }
         else if (slot3.result.Column3 == "Plum")
         {
-            alert(slot3.result.Column3);
+            //alert(slot3.result.Column3);
             position3 = positions.gold;
         }
         else if (slot3.result.Column3 == "Bell")
         {
-            alert(slot3.result.Column3);
+            //alert(slot3.result.Column3);
             position3 = positions.gold;
         }
         else if (slot3.result.Column3 == "Melon")
         {
-            alert(slot3.result.Column3);
+            //alert(slot3.result.Column3);
             position3 = positions.box;
         }
         else
         {
-            alert(slot3.result.Column3);
+            //alert(slot3.result.Column3);
             position3 = positions.goldhelm;
         }
 
         one.stop(position1);
         two.stop(position2);
         three.stop(position3);
+        
+        setTimeout(function(){
+            $('input:submit').attr("disabled", false);
+        },3000);
     });
 });
 
