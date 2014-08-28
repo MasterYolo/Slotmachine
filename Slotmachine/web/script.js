@@ -1,4 +1,6 @@
 /**
+ * @author Michael Lindell, Max Topsholm.
+ * 
  * Written by Michael Lindell, Max Topsholm.
  * 
  * This angularjs module fetches an generated object from the back-end
@@ -50,8 +52,6 @@ angular.module('ControllerModule', []).
  * 
  * @returns NOTHING.
  */
-
-/* Animation part */
 $(function() {
     var positions = new Object();
     positions.lotf = 0;
@@ -61,6 +61,23 @@ $(function() {
     positions.box = 370; //box
     positions.goldhelm = 465; //goldhelm
     positions.hammer = 545; //hammer
+
+    /* PositionArray */
+    var positionsArray = [];
+    positionsArray.push(positions.dollar);
+    positionsArray.push(positions.bolt);
+    positionsArray.push(positions.gold);
+    positionsArray.push(positions.box);
+    positionsArray.push(positions.goldhelm);
+    positionsArray.push(positions.hammer);
+
+    var wordArray = [];
+    wordArray.push("dollar");
+    wordArray.push("bolt");
+    wordArray.push("gold");
+    wordArray.push("box");
+    wordArray.push("goldhelm");
+    wordArray.push("hammer");
 
     var slot1 = angular.element($("#slot1")).scope();
     var slot2 = angular.element($("#slot2")).scope();
@@ -76,132 +93,56 @@ $(function() {
 
     $('input').click(function() {
         $('input:submit').attr("disabled", true);
-        
+
         var position1;
         var position2;
         var position3;
-        
-        /* First slot */
-        
-        /*
-         
-          for(var i = 0; i < 5; i++)
-          {
-            if (slot1.result.Column1 == lista[i])
-            {
-              position1 = lista2[i];
-            }
-          }
-          
-         
-         */
-        
-        //alert(slot1.result.Column1); debug purpose only
-        if (slot1.result.Column1 == "Cherry")
-        {
-            //alert(slot1.result.Column1);
-            position1 = positions.dollar;
-        }
-        else if (slot1.result.Column1 == "Orange")
-        {
-            //alert(slot1.result.Column1);
-            position1 = positions.bolt;
-        }
-        else if (slot1.result.Column1 == "Plum")
-        {
-            //alert(slot1.result.Column1);
-            position1 = positions.gold;
-        }
-        else if (slot1.result.Column1 == "Bell")
-        {
-            //alert(slot1.result.Column1);
-            position1 = positions.hammer;
-        }
-        else if (slot1.result.Column1 == "Melon")
-        {
-            //alert(slot1.result.Column1);
-            position1 = positions.box;
-        }
-        else
-        {
-            //alert(slot1.result.Column1);
-            position1 = positions.goldhelm;
-        }
 
-        /* Second slot */
-        if (slot2.result.Column2 == "Cherry")
+        for (var i = 0; i < 5; i++)
         {
-            //alert(slot2.result.Column2);
-            position2 = positions.dollar;
-        }
-        else if (slot2.result.Column2 == "Orange")
-        {
-            //alert(slot1.result.Column1);
-            position2 = positions.bolt;
-        }
-        else if (slot2.result.Column2 == "Plum")
-        {
-            //alert(slot2.result.Column2);
-            position2 = positions.gold;
-        }
-        else if (slot2.result.Column2 == "Bell")
-        {
-            //alert(slot2.result.Column2);
-            position2 = positions.hammer;
-        }
-        else if (slot2.result.Column2 == "Melon")
-        {
-            //alert(slot2.result.Column2);
-            position2 = positions.box;
-        }
-        else
-        {
-            //alert(slot2.result.Column2);
-            position2 = positions.goldhelm;
-        }
-        
-        /* Third slot */
-        if (slot3.result.Column3 == "Cherry")
-        {
-            //alert(slot3.result.Column3);
-            position3 = positions.dollar;
-        }
-        else if (slot3.result.Column3 == "Orange")
-        {
-            //alert(slot3.result.Column3);
-            position3 = positions.bolt;
-        }
-        else if (slot3.result.Column3 == "Plum")
-        {
-            //alert(slot3.result.Column3);
-            position3 = positions.gold;
-        }
-        else if (slot3.result.Column3 == "Bell")
-        {
-            //alert(slot3.result.Column3);
-            position3 = positions.gold;
-        }
-        else if (slot3.result.Column3 == "Melon")
-        {
-            //alert(slot3.result.Column3);
-            position3 = positions.box;
-        }
-        else
-        {
-            //alert(slot3.result.Column3);
-            position3 = positions.goldhelm;
+            /* First slot */
+            if (slot1.result.Column1 === wordArray[i])
+            {
+                position1 = positionsArray[i];
+            }
+            /* Second slot */
+            if (slot1.result.Column2 === wordArray[i])
+            {
+                position2 = positionsArray[i];
+            }
+            /* Third slot */
+            if (slot1.result.Column3 === wordArray[i])
+            {
+                position3 = positionsArray[i];
+            }
         }
 
         one.stop(position1);
         two.stop(position2);
         three.stop(position3);
-        
-        setTimeout(function(){
+
+        setTimeout(function() {
             $('input:submit').attr("disabled", false);
-        },3000);
+            /* Later on this is where the function to the adding money to the
+             * user-account.
+             */
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
+        }, 3000);
     });
 });
 
+/** 
+ * Function to animate the three slots.
+ * 
+ * @param {type} slot The variable that combines the slot with the slot css.
+ * @param {type} maxSpeed The maxspeed the slot can have
+ * @param {type} initialSpeed The initial speed that the slot has.
+ * @param {type} direction The desired direction the slot shall move.
+ * @param {type} timer How often the slot is going to be updated.
+ * @returns {Slot} Returns a desired slot.
+ */
 function Slot(slot, maxSpeed, initialSpeed, direction, timer) {
     this.slot = slot;
     this.speed = initialSpeed;
@@ -267,20 +208,20 @@ function Slot(slot, maxSpeed, initialSpeed, direction, timer) {
         repeated = parseInt(backgroundPos / slotImageHeight, 10);
 
         actualPosition = (slotImageHeight * repeated) - position;
-        if (that.direction == 'down') {
+        if (that.direction === 'down') {
             while (actualPosition < backgroundPos) {
                 actualPosition += slotImageHeight;
             }
         }
 
-        if (that.direction == 'up') {
+        if (that.direction === 'up') {
             while (actualPosition > backgroundPos) {
                 actualPosition -= slotImageHeight;
             }
         }
 
         $slot.animate({backgroundPosition: '0 ' + actualPosition + 'px'}, 1000);
-    }
+    };
 
     $(this.slot).pan({fps: '30', speed: this.speed, dir: this.direction});
     $(this.slot).spStop();

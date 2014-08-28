@@ -1,23 +1,17 @@
 package model;
 
 import java.util.Random;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-/**
- *
- * @author Mikey
- */
 
+/**
+ * Class to generate random answers to the slotmachine.
+ * @author Michael Lindell, Max Topsholm.
+ */
 public class Slotmachine {
 
     public String getRNG(int coin) {
-        
         //JSONArray SlotmachineResult = new JSONArray();
-        
         JSONObject object = new JSONObject();
-        
-        
-        
         // {"Column1": "Bell","Bell","Melon"}
         
         String result, result2, result3;
@@ -45,22 +39,22 @@ public class Slotmachine {
 
         switch (a) {
             case 0:
-                result += "Cherry";
+                result += "dollar";
                 break;
             case 1:
-                result += "Orange";
+                result += "bolt";
                 break;
             case 2:
-                result += "Plum";
+                result += "gold";
                 break;
             case 3:
-                result += "Bell";
+                result += "box";
                 break;
             case 4:
-                result += "Melon";
+                result += "goldhelm";
                 break;
             default:
-                result += "Bar";
+                result += "hammer";
                 break;
         }
         
@@ -68,44 +62,44 @@ public class Slotmachine {
 
         switch (b) {
             case 0:
-                result2 += "Cherry ";
+                result2 += "dollar";
                 break;
             case 1:
-                result2 += "Orange";
+                result2 += "bolt";
                 break;
             case 2:
-                result2 += "Plum";
+                result2 += "gold";
                 break;
             case 3:
-                result2 += "Bell";
+                result2 += "box";
                 break;
             case 4:
-                result2 += "Melon";
+                result2 += "goldhelm";
                 break;
             default:
-                result2 += "Bar";
+                result2 += "hammer";
         }
 
         object.put("Column2", result2);
         
         switch (c) {
             case 0:
-                result3 += "Cherry";
+                result3 += "dollar";
                 break;
             case 1:
-                result3 += "Orange";
+                result3 += "bolt";
                 break;
             case 2:
-                result3 += "Plum";
+                result3 += "gold";
                 break;
             case 3:
-                result3 += "Bell";
+                result3 += "box";
                 break;
             case 4:
-                result3 += "Melon";
+                result3 += "goldhelm";
                 break;
             default:
-                result3 += "Bar";
+                result3 += "hammer";
         }
         
          object.put("Column3", result3);
